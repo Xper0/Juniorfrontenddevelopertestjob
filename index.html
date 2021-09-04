@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IdaTest</title>
+    <link rel="stylesheet" href="index.css" >
+
+</head>
+<body>
+<div class="App">
+    <div class="Header">
+        <div class="Header-add">
+            <h2 class="Header-add__title">Добавление товара</h2>
+        </div>
+        <div class="Header-contol">
+            <select class="Header-contol__select">
+                <option class="Header-contol__option" value="По умочланию">По умочланию</option>
+            </select>
+        </div>
+    </div>
+    <div class="Content">
+        <form class="Content-form" method="get">
+            <label class="Content-form__name">Наименование товара<sup><div class="circle"></div></sup></label>
+            <input class="form__input validate" name="nameProduct" placeholder="Введите наименование товара">
+            <label class="Content-form__name">Описание товара</label>
+            <textarea class="form__area " placeholder="Введите описание товара" name="descProduct"></textarea>
+            <label class="Content-form__name">Ссылка на изображение товара<sup><div class="circle"></div></sup></label>
+            <input class="form__input validate" name="productImg" placeholder="Введите ссылку" type="url">
+            <label class="Content-form__name">Цена товара<sup><div class="circle"></div></sup></label>
+            <input class="form__input validate" placeholder="Введите цену" name="priceProduct" type="number">
+            <button class="Content-form__btn">Добавить товар</button>
+        </form>
+        <div class="Content-item">
+            <div class="Content-product">
+                <img class="Content-product__img" src="./img/photo.png" alt="item">
+                <h2 class="Content-product__title">Наименование товара</h2>
+                <p class="Content-product__desc">Довольно-таки интересное описание товара в несколько строк.
+                    Довольно-таки интересное описание товара в несколько строк</p>
+                <span class="Content-product__cost">10 000 руб.</span>
+                <button class="Content-product__del">
+                    <img class="img" src="./img/delete.png" alt="delete"/>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="dist/bundle.js"></script>
+</html>
