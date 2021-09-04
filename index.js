@@ -1,5 +1,3 @@
-// import axios from "axios";
-// const axios = require("axios");
 
 window.onload = function(){
 
@@ -26,6 +24,7 @@ window.onload = function(){
         if (product.value !== "" && productImg.value !== "" && priceProduct.value !== "") {
             btn.style.background = "#7BAE73"
             btn.style.color = "#FFFFFF"
+
         }else {
             btn.style.background = "#EEEEEE"
             btn.style.color = "#B4B4B4"
@@ -39,8 +38,6 @@ window.onload = function(){
 
         event.preventDefault()
         deleteValidError()
-        checkFields()
-
 
 
         const obj = {
@@ -50,7 +47,7 @@ window.onload = function(){
             priceProduct: priceProduct.value
         }
 
-        if(validate){
+        if(checkFields()){
             [ product.value , descProduct.value , productImg.value, priceProduct.value ] = ["","","",""]
             btn.style.background = "#EEEEEE"
             addProductItem(obj)
@@ -62,10 +59,14 @@ window.onload = function(){
         for(let i = 0; i < validate.length; i++){
             if (!validate[i].value){
                 const error = validError()
+
                 validate[i].style.border = "1px solid #FF8484";
-                form.parentElement.insertBefore(error, validate[i])
+                form[i].parentElement.insertBefore(error, validate[i])
+                return false
             }
         }
+
+        return true
     }
 
     function validError(){
@@ -76,18 +77,17 @@ window.onload = function(){
     }
 
     function deleteValidError(){
-
         const errors = form.querySelectorAll('.form__error')
-
+        console.log(errors)
         for (let i = 0; i < errors.length; i++) {
-            validate[i].style.border = "1px solid black"
             errors[i].remove()
+            validate[i].style.border = "none"
         }
     }
 
     function addProductItem(item){
         const elem = document.createElement("div")
-        console.log(item.productImg)
+
         elem.className = "Content-product"
         elem.innerHTML = `<img class="Content-product__img" src=${item.productImg} alt="item">
                 <h2 class="Content-product__title">${item.product}</h2>
